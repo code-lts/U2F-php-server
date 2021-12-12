@@ -56,6 +56,7 @@ class SignRequest implements \JsonSerializable
         return $this->appId;
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return [
