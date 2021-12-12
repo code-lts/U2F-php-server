@@ -1,6 +1,6 @@
 <?php
 
-namespace Samyoul\U2F\U2FServer;
+namespace CodeLts\U2F\U2FServer;
 
 
 class RegistrationRequest implements \JsonSerializable

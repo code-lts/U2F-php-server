@@ -164,7 +164,7 @@ You'll only ever need to use this method call once per installation and only in 
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Samyoul\U2F\U2FServer\U2FServer as U2F;
+use CodeLts\U2F\U2FServer\U2FServer as U2F;
 
 var_dump(U2F::checkOpenSSLVersion());
 ```
@@ -183,7 +183,7 @@ We assume that user has successfully authenticated and wishes to register.
 
 require __DIR__ . '/vendor/autoload.php';
 
-use Samyoul\U2F\U2FServer\U2FServer as U2F;
+use CodeLts\U2F\U2FServer\U2FServer as U2F;
 
 session_start();
 
@@ -268,7 +268,7 @@ This is the last stage of registration. Validate the registration response data 
 <?php
 
 require('vendor/autoload.php');
-use Samyoul\U2F\U2FServer\U2FServer as U2F;
+use CodeLts\U2F\U2FServer\U2FServer as U2F;
 
 session_start();
 
@@ -312,7 +312,7 @@ We assume that user has successfully authenticated and has previously registered
 <?php
 
 require('vendor/autoload.php');
-use Samyoul\U2F\U2FServer\U2FServer as U2F;
+use CodeLts\U2F\U2FServer\U2FServer as U2F;
 
 session_start();
 
@@ -398,7 +398,7 @@ This is the last stage of authentication. Validate the authentication response d
 <?php
 
 require('vendor/autoload.php');
-use Samyoul\U2F\U2FServer\U2FServer as U2F;
+use CodeLts\U2F\U2FServer\U2FServer as U2F;
 
 session_start();
 

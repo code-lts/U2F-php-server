@@ -1,14 +1,14 @@
 <?php
 
-namespace Samyoul\U2F\U2FServer\Tests;
+namespace CodeLts\U2F\U2FServer\Tests;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use Samyoul\U2F\U2FServer\RegistrationRequest;
-use Samyoul\U2F\U2FServer\SignRequest;
-use Samyoul\U2F\U2FServer\U2FException;
-use Samyoul\U2F\U2FServer\U2FServer;
+use CodeLts\U2F\U2FServer\RegistrationRequest;
+use CodeLts\U2F\U2FServer\SignRequest;
+use CodeLts\U2F\U2FServer\U2FException;
+use CodeLts\U2F\U2FServer\U2FServer;
 
 class U2FServerTest extends TestCase
 {

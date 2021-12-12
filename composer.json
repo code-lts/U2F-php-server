@@ -28,10 +28,10 @@
         "phpunit/phpunit": "^7 || ^8 || ^9"
     },
     "autoload": {
-        "psr-4": { "Samyoul\\U2F\\U2FServer\\": ["src/"] }
+        "psr-4": { "CodeLts\\U2F\\U2FServer\\": ["src/"] }
     },
     "autoload-dev": {
-        "psr-4": { "Samyoul\\U2F\\U2FServer\\Tests\\": ["test/"] }
+        "psr-4": { "CodeLts\\U2F\\U2FServer\\Tests\\": ["test/"] }
     },
     "replace": {
         "samyoul/u2f-php-server": "*"
