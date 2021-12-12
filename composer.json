@@ -28,5 +28,8 @@
     },
     "autoload-dev": {
         "psr-4": { "Samyoul\\U2F\\U2FServer\\Tests\\": ["test/"] }
+    },
+    "replace": {
+        "samyoul/u2f-php-server": "*"
     }
 }
