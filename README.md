@@ -2,6 +2,7 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/code-lts/u2f-php-server.svg?style=flat-square)](https://packagist.org/packages/code-lts/u2f-php-server)
 [![GitHub license](https://img.shields.io/github/license/code-lts/U2F-php-server?style=flat-square)](LICENCE)
+[![codecov](https://codecov.io/gh/code-lts/U2F-php-server/branch/main/graph/badge.svg?token=y0ssZvgEPn)](https://codecov.io/gh/code-lts/U2F-php-server)
 
 Server-side handling of FIDO U2F registration and authentication for PHP.
 
