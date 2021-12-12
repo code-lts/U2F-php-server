@@ -1,7 +1,7 @@
 # U2F-php-server
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/samyoul/u2f-php-server.svg?style=flat-square)](https://packagist.org/packages/samyoul/u2f-php-server)
-[![GitHub license](https://img.shields.io/github/license/Samyoul/U2F-php-server?style=flat-square)](LICENCE)
+[![Latest Stable Version](https://img.shields.io/packagist/v/code-lts/u2f-php-server.svg?style=flat-square)](https://packagist.org/packages/code-lts/u2f-php-server)
+[![GitHub license](https://img.shields.io/github/license/code-lts/U2F-php-server?style=flat-square)](LICENCE)
 
 Server-side handling of FIDO U2F registration and authentication for PHP.
 
@@ -12,19 +12,19 @@ FIDO's U2F enables you to add a simple unobtrusive method of 2nd factor authenti
 
 **Base Library**
 
-https://github.com/Samyoul/U2F-php-server
+https://github.com/code-lts/U2F-php-server
 
 **Fido Test Suite (UTD)**
 
-https://github.com/Samyoul/U2F-php-UTD
+https://github.com/code-lts/U2F-php-UTD
 
 **Frameworks**
 
-*Laravel* https://github.com/Samyoul/U2F-Laravel-server
+*Laravel* https://github.com/code-lts/U2F-Laravel-server
 
-*Yii* https://github.com/Samyoul/U2F-Yii-server
+*Yii* https://github.com/code-lts/U2F-Yii-server
 
-*CodeIgniter* https://github.com/Samyoul/U2F-CodeIgniter-server
+*CodeIgniter* https://github.com/code-lts/U2F-CodeIgniter-server
 
 
 ## Contents
@@ -52,7 +52,7 @@ https://github.com/Samyoul/U2F-php-UTD
 
 ## Installation
 
-`composer require samyoul/u2f-php-server`
+`composer require code-lts/u2f-php-server`
 
 ## Requirements
 
@@ -131,12 +131,12 @@ TODO the descriptions
 
 ## Example Code
 
-For a full working code example for this repository please see [the dedicated example repository](https://github.com/Samyoul/U2F-php-server-examples)
+For a full working code example for this repository please see [the dedicated example repository](https://github.com/code-lts/U2F-php-server-examples)
 
 You can also install it with the following:
 
 ```sh
-$ git clone https://github.com/Samyoul/U2F-php-server-examples.git
+$ git clone https://github.com/code-lts/U2F-php-server-examples.git
 $ cd u2f-php-server-examples
 $ composer install
 ```
@@ -434,12 +434,12 @@ echo View::make('template/location/u2f-authentication-result.html', [
 
 ---
 
-Again, if you want to just download some example code to play with just install the full working code examples written for this repository please see [the dedicated example repository](https://github.com/Samyoul/U2F-php-server-examples)
+Again, if you want to just download some example code to play with just install the full working code examples written for this repository please see [the dedicated example repository](https://github.com/code-lts/U2F-php-server-examples)
 
 You can also install it with the following:
 
 ```sh
-$ git clone https://github.com/Samyoul/U2F-php-server-examples.git
+$ git clone https://github.com/code-lts/U2F-php-server-examples.git
 $ cd u2f-php-server-examples
 $ composer install
 ```
@@ -448,7 +448,7 @@ $ composer install
 
 ### Laravel Framework
 
-See the dedicated repository : https://github.com/Samyoul/U2F-Laravel-server
+See the dedicated repository : https://github.com/code-lts/U2F-Laravel-server
 
 Installation:
 
@@ -458,7 +458,7 @@ composer require u2f-laravel-server
 
 ### Yii Framework
 
-See the dedicated repository : https://github.com/Samyoul/U2F-Yii-server
+See the dedicated repository : https://github.com/code-lts/U2F-Yii-server
 
 Installation:
 
@@ -468,7 +468,7 @@ composer require u2f-yii-server
 
 ### CodeIgniter Framework
 
-See the dedicated repository : https://github.com/Samyoul/U2F-CodeIgniter-server
+See the dedicated repository : https://github.com/code-lts/U2F-CodeIgniter-server
 
 Installation:
 
@@ -482,7 +482,7 @@ composer require u2f-codeigniter-server
 
 ## Licence
 
-The repository is licensed under a BSD license. [Read details here](https://github.com/Samyoul/U2F-php-server/blob/master/LICENCE)
+The repository is licensed under a BSD license. [Read details here](https://github.com/code-lts/U2F-php-server/blob/master/LICENCE)
 
 ## Credits
 
