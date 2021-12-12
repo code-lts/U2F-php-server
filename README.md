@@ -9,6 +9,17 @@ Server-side handling of FIDO U2F registration and authentication for PHP.
 Securing your online accounts and doing your bit to protect your data is extremely important and increasingly more so as hackers get more sophisticated.
 FIDO's U2F enables you to add a simple unobtrusive method of 2nd factor authentication, allowing users of your service and/or application to link a hardware key to their account.
 
+## Story about this library fork
+
+All started in this [issue](https://github.com/Samyoul/U2F-php-server/issues/8) in October 2020.
+I quickly worked hard on building tests and opening a [pull-request](https://github.com/Samyoul/U2F-php-server/pull/9).
+But nothing got merged because the library author vanished.
+
+### What does change in this fork ?
+
+For the first released version: nothing changed, only tests where written. And PHP 8.1 support was done.
+Future versions may change things.
+
 ## The Family of U2F php Libraries
 
 **Base Library**
@@ -18,15 +29,6 @@ https://github.com/code-lts/U2F-php-server
 **Fido Test Suite (UTD)**
 
 https://github.com/code-lts/U2F-php-UTD
-
-**Frameworks**
-
-*Laravel* https://github.com/code-lts/U2F-Laravel-server
-
-*Yii* https://github.com/code-lts/U2F-Yii-server
-
-*CodeIgniter* https://github.com/code-lts/U2F-CodeIgniter-server
-
 
 ## Contents
 
@@ -444,42 +446,6 @@ $ git clone https://github.com/code-lts/U2F-php-server-examples.git
 $ cd u2f-php-server-examples
 $ composer install
 ```
-
-## Frameworks
-
-### Laravel Framework
-
-See the dedicated repository : https://github.com/code-lts/U2F-Laravel-server
-
-Installation:
-
-```sh
-composer require u2f-laravel-server
-```
-
-### Yii Framework
-
-See the dedicated repository : https://github.com/code-lts/U2F-Yii-server
-
-Installation:
-
-```sh
-composer require u2f-yii-server
-```
-
-### CodeIgniter Framework
-
-See the dedicated repository : https://github.com/code-lts/U2F-CodeIgniter-server
-
-Installation:
-
-```sh
-composer require u2f-codeigniter-server
-```
-
-### Can't see yours?
-
-**Your favourite php framework not in this list? Get coding and submit a pull request and get your framework extension included here.**
 
 ## Licence
 
