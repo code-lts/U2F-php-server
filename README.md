@@ -26,10 +26,6 @@ Future versions may change things.
 
 https://github.com/code-lts/U2F-php-server
 
-**Fido Test Suite (UTD)**
-
-https://github.com/code-lts/U2F-php-UTD
-
 ## Contents
 
 1. [Installation](#installation)
