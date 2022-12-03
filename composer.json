@@ -43,5 +43,11 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "archive": {
+        "exclude": [
+            "/tests",
+            "/phpunit.xml.dist"
+        ]
     }
 }
