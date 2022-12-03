@@ -16,7 +16,7 @@ jobs:
                 include:
                     - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use php ${{ matrix.php-version }}
               uses: shivammathur/setup-php@v2
               with:
@@ -24,10 +24,9 @@ jobs:
                   coverage: pcov
             - name: Get Composer Cache Directory
               id: composer-cache
-              run: |
-                echo "::set-output name=dir::$(composer config cache-files-dir)"
+              run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
             - name: Restore cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                 path: ${{ steps.composer-cache.outputs.dir }}
                 key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
