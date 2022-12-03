@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodeLts\U2F\U2FServer\Tests;
 
 use CodeLts\U2F\U2FServer\RegistrationRequest;
@@ -7,6 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class RegistrationRequestTest extends TestCase
 {
+
     public function testGetters(): void
     {
         $rr = new RegistrationRequest('yKA0x075tjJ-GE7fKTfnzTOSaNUOWQxRd9TWz5aFOg8', 'http://demo.example.com');
@@ -23,4 +26,5 @@ class RegistrationRequestTest extends TestCase
             json_encode($rr)
         );
     }
+
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodeLts\U2F\U2FServer\Tests;
 
 use CodeLts\U2F\U2FServer\SignRequest;
@@ -13,11 +15,13 @@ class SignRequestTest extends TestCase
 
     public function testGetters(): void
     {
-        $sr = new SignRequest([
+        $sr = new SignRequest(
+            [
             'challenge' => 'fEnc9oV79EaBgK5BoNERU5gPKM2XGYWrz4fUjgc0000',
             'keyHandle' => $this->keyHandle,
             'appId' => 'http://demo.example.com',
-        ]);
+            ]
+        );
         $this->assertSame('http://demo.example.com', $sr->appId());
         $this->assertSame('fEnc9oV79EaBgK5BoNERU5gPKM2XGYWrz4fUjgc0000', $sr->challenge());
         $this->assertSame('U2F_V2', $sr->version());
@@ -25,11 +29,13 @@ class SignRequestTest extends TestCase
 
     public function testToJson(): void
     {
-        $sr = new SignRequest([
+        $sr = new SignRequest(
+            [
             'challenge' => 'fEnc9oV79EaBgK5BoNERU5gPKM2XGYWrz4fUjgc0000',
             'keyHandle' => $this->keyHandle,
             'appId' => 'http://demo.example.com',
-        ]);
+            ]
+        );
         $this->assertSame(
             '{"version":"U2F_V2","challenge":"fEnc9oV79EaBgK5BoNERU5gPKM2XGYWrz4fUjgc0000",'
             . '"keyHandle":"CTUayZo8hCBeC-sGQJChC0wW-bBg99bmOlGCgw8XGq4dLsxO3yWh9mRYArZxocP5hBB1pEGB3bbJYiM-5acc5w",'
@@ -37,4 +43,5 @@ class SignRequestTest extends TestCase
             json_encode($sr)
         );
     }
+
 }

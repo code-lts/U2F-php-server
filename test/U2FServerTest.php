@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace CodeLts\U2F\U2FServer\Tests;
 
 use InvalidArgumentException;
@@ -42,7 +44,8 @@ class U2FServerTest extends TestCase
 
     // Source: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L201
     // Data copyright: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L3
-    private $clientData = 'eyAiY2hhbGxlbmdlIjogImZFbmM5b1Y3OUVhQmdLNUJvTkVSVTVnUEtNMlhHWVdyejRmVWpnYzBRN2ciLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5nZXRBc3NlcnRpb24iIH0';
+    private $clientData = 'eyAiY2hhbGxlbmdlIjogImZFbmM5b1Y3OUVhQmdLNUJvTkVSVTVnUEtNMlhHWVdyejRmVWpnYzBRN2ciLCAib'
+    . '3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5nZXRBc3NlcnRpb24iIH0';
 
 
     // Source: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L201
@@ -51,17 +54,28 @@ class U2FServerTest extends TestCase
 
     // Source: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L51
     // Data copyright: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L3
-    private $registrationData = 'BQQtEmhWVgvbh-8GpjsHbj_d5FB9iNoRL8mNEq34-ANufKWUpVdIj6BSB_m3eMoZ3GqnaDy3RA5eWP8mhTkT1Ht3QAk1GsmaPIQgXgvrBkCQoQtMFvmwYPfW5jpRgoMPFxquHS7MTt8lofZkWAK2caHD-YQQdaRBgd22yWIjPuWnHOcwggLiMIHLAgEBMA0GCSqGSIb3DQEBCwUAMB0xGzAZBgNVBAMTEll1YmljbyBVMkYgVGVzdCBDQTAeFw0xNDA1MTUxMjU4NTRaFw0xNDA2MTQxMjU4NTRaMB0xGzAZBgNVBAMTEll1YmljbyBVMkYgVGVzdCBFRTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABNsK2_Uhx1zOY9ym4eglBg2U5idUGU-dJK8mGr6tmUQflaNxkQo6IOc-kV4T6L44BXrVeqN-dpCPr-KKlLYw650wDQYJKoZIhvcNAQELBQADggIBAJVAa1Bhfa2Eo7TriA_jMA8togoA2SUE7nL6Z99YUQ8LRwKcPkEpSpOsKYWJLaR6gTIoV3EB76hCiBaWN5HV3-CPyTyNsM2JcILsedPGeHMpMuWrbL1Wn9VFkc7B3Y1k3OmcH1480q9RpYIYr-A35zKedgV3AnvmJKAxVhv9GcVx0_CewHMFTryFuFOe78W8nFajutknarupekDXR4tVcmvj_ihJcST0j_Qggeo4_3wKT98CgjmBgjvKCd3Kqg8n9aSDVWyaOZsVOhZj3Fv5rFu895--D4qiPDETozJIyliH-HugoQpqYJaTX10mnmMdCa6aQeW9CEf-5QmbIP0S4uZAf7pKYTNmDQ5z27DVopqaFw00MIVqQkae_zSPX4dsNeeoTTXrwUGqitLaGap5ol81LKD9JdP3nSUYLfq0vLsHNDyNgb306TfbOenRRVsgQS8tJyLcknSKktWD_Qn7E5vjOXprXPrmdp7g5OPvrbz9QkWa1JTRfo2n2AXV02LPFc-UfR9bWCBEIJBxvmbpmqt0MnBTHWnth2b0CU_KJTDCY3kAPLGbOT8A4KiI73pRW-e9SWTaQXskw3Ei_dHRILM_l9OXsqoYHJ4Dd3tbfvmjoNYggSw4j50l3unI9d1qR5xlBFpW5sLr8gKX4bnY4SR2nyNiOQNLyPc0B0nW502aMEUCIQDTGOX-i_QrffJDY8XvKbPwMuBVrOSO-ayvTnWs_WSuDQIgZ7fMAvD_Ezyy5jg6fQeuOkoJi8V2naCtzV-HTly8Nww=';
+    private $registrationData = 'BQQtEmhWVgvbh-8GpjsHbj_d5FB9iNoRL8mNEq34-ANufKWUpVdIj6BSB_m3eMoZ3Gq'
+    . 'naDy3RA5eWP8mhTkT1Ht3QAk1GsmaPIQgXgvrBkCQoQtMFvmwYPfW5jpRgoMPFxquHS7MTt8lofZkWAK2caHD-YQQdaRBgd'
+    . '22yWIjPuWnHOcwggLiMIHLAgEBMA0GCSqGSIb3DQEBCwUAMB0xGzAZBgNVBAMTEll1YmljbyBVMkYgVGVzdCBDQTAeFw0xNDA1'
+    . 'MTUxMjU4NTRaFw0xNDA2MTQxMjU4NTRaMB0xGzAZBgNVBAMTEll1YmljbyBVMkYgVGVzdCBFRTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IAB'
+    . 'NsK2_Uhx1zOY9ym4eglBg2U5idUGU-dJK8mGr6tmUQflaNxkQo6IOc-kV4T6L44BXrVeqN-dpCPr-KKlLYw650wDQYJKoZIhvcNAQELBQADggIBAJVAa1Bhfa2Eo7T'
+    . 'riA_jMA8togoA2SUE7nL6Z99YUQ8LRwKcPkEpSpOsKYWJLaR6gTIoV3EB76hCiBaWN5HV3-CPyTyNsM2JcILsedPGeHMpMuWrbL1Wn9VFkc7B3Y1k3OmcH1480q9RpYI'
+    . 'Yr-A35zKedgV3AnvmJKAxVhv9GcVx0_CewHMFTryFuFOe78W8nFajutknarupekDXR4tVcmvj_ihJcST0j_Qggeo4_3wKT98CgjmBgjvKCd3Kqg8n9aSDVWyaOZsVOhZ'
+    . 'j3Fv5rFu895--D4qiPDETozJIyliH-HugoQpqYJaTX10mnmMdCa6aQeW9CEf-5QmbIP0S4uZAf7pKYTNmDQ5z27DVopqaFw00MIVqQkae_zSPX4dsNeeoTTXrwUGqitL'
+    . 'aGap5ol81LKD9JdP3nSUYLfq0vLsHNDyNgb306TfbOenRRVsgQS8tJyLcknSKktWD_Qn7E5vjOXprXPrmdp7g5OPvrbz9QkWa1JTRfo2n2AXV02LPFc-UfR9bWCBEIJB'
+    . 'xvmbpmqt0MnBTHWnth2b0CU_KJTDCY3kAPLGbOT8A4KiI73pRW-e9SWTaQXskw3Ei_dHRILM_l9OXsqoYHJ4Dd3tbfvmjoNYggSw4j50l3unI9d1qR5xlBFpW5sLr8'
+    . 'gKX4bnY4SR2nyNiOQNLyPc0B0nW502aMEUCIQDTGOX-i_QrffJDY8XvKbPwMuBVrOSO-ayvTnWs_WSuDQIgZ7fMAvD_Ezyy5jg6fQeuOkoJi8V2naCtzV-HTly8Nww=';
 
     // Source: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L51
     // Data copyright: https://github.com/Yubico/php-u2flib-server/blob/55d813acf68212ad2cadecde07551600d6971939/tests/u2flib_test.php#L3
-    private $clientData2 = 'eyAiY2hhbGxlbmdlIjogInlLQTB4MDc1dGpKLUdFN2ZLVGZuelRPU2FOVU9XUXhSZDlUV3o1YUZPZzgiLCAib3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5maW5pc2hFbnJvbGxtZW50IiB9';
+    private $clientData2 = 'eyAiY2hhbGxlbmdlIjogInlLQTB4MDc1dGpKLUdFN2ZLVGZuelRPU2FOVU9XUXhSZDlUV3o1YUZPZzgiLCAi'
+    . 'b3JpZ2luIjogImh0dHA6XC9cL2RlbW8uZXhhbXBsZS5jb20iLCAidHlwIjogIm5hdmlnYXRvci5pZC5maW5pc2hFbnJvbGxtZW50IiB9';
 
     private $appId = 'http://demo.example.com';
 
     protected static function getClassMethod(string $className, string $methodName)
     {
-        $class = new ReflectionClass($className);
+        $class  = new ReflectionClass($className);
         $method = $class->getMethod($methodName);
         $method->setAccessible(true);
         return $method;
@@ -69,7 +83,7 @@ class U2FServerTest extends TestCase
 
     public function testCreateChallenge(): void
     {
-        $u2f = self::getClassMethod(U2FServer::class, 'createChallenge');
+        $u2f             = self::getClassMethod(U2FServer::class, 'createChallenge');
         $challengeResult = $u2f->invokeArgs(new U2FServer(), []);
         $this->assertNotEmpty($challengeResult);
         $this->assertGreaterThan(20, strlen($challengeResult));
@@ -81,17 +95,45 @@ class U2FServerTest extends TestCase
             [
                 // This is an example certificate in hex format
                 // @see https://fidoalliance.org/specs/u2f-specs-1.0-bt-nfc-id-amendment/fido-u2f-raw-message-formats.html
-                '3082013c3081e4a003020102020a47901280001155957352300a06082a8648ce3d0403023017311530130603550403130c476e756262792050696c6f74301e170d3132303831343138323933325a170d3133303831343138323933325a3031312f302d0603550403132650696c6f74476e756262792d302e342e312d34373930313238303030313135353935373335323059301306072a8648ce3d020106082a8648ce3d030107034200048d617e65c9508e64bcc5673ac82a6799da3c1446682c258c463fffdf58dfd2fa3e6c378b53d795c4a4dffb4199edd7862f23abaf0203b4b8911ba0569994e101300a06082a8648ce3d0403020347003044022060cdb6061e9c22262d1aac1d96d8c70829b2366531dda268832cb836bcd30dfa0220631b1459f09e6330055722c8d89b7f48883b9089b88d60d1d9795902b30410df',
+                '3082013c3081e4a003020102020a47901280001155957352300a06082a8648ce3d0403023017311530130603550403130c476e7562627920'
+                . '50696c6f74301e170d3132303831343138323933325a170d3133303831343138323933325a3031312f302d0603550403132650696c6f7447'
+                . '6e756262792d302e342e312d34373930313238303030313135353935373335323059301306072a8648ce3d020106082a8648ce3d03010703'
+                . '4200048d617e65c9508e64bcc5673ac82a6799da3c1446682c258c463fffdf58dfd2fa3e6c378b53d795c4a4dffb4199edd7862f23abaf020'
+                . '3b4b8911ba0569994e101300a06082a8648ce3d0403020347003044022060cdb6061e9c22262d1aac1d96d8c70829b2366531dda268832cb8'
+                . '36bcd30dfa0220631b1459f09e6330055722c8d89b7f48883b9089b88d60d1d9795902b30410df',
                 '99ab7a0d6a31feb411158184b5acadb8325a2c7e82a55cd709de7771ef6cd3b5',
-                '3082013c3081e4a003020102020a47901280001155957352300a06082a8648ce3d0403023017311530130603550403130c476e756262792050696c6f74301e170d3132303831343138323933325a170d3133303831343138323933325a3031312f302d0603550403132650696c6f74476e756262792d302e342e312d34373930313238303030313135353935373335323059301306072a8648ce3d020106082a8648ce3d030107034200048d617e65c9508e64bcc5673ac82a6799da3c1446682c258c463fffdf58dfd2fa3e6c378b53d795c4a4dffb4199edd7862f23abaf0203b4b8911ba0569994e101300a06082a8648ce3d0403020347003044022060cdb6061e9c22262d1aac1d96d8c70829b2366531dda268832cb836bcd30dfa0220631b1459f09e6330055722c8d89b7f48883b9089b88d60d1d9795902b30410df',
+                '3082013c3081e4a003020102020a47901280001155957352300a06082a8648ce3d0403023017311530130603550403130c476e75626279205'
+                . '0696c6f74301e170d3132303831343138323933325a170d3133303831343138323933325a3031312f302d0603550403132650696c6f74476e'
+                . '756262792d302e342e312d34373930313238303030313135353935373335323059301306072a8648ce3d020106082a8648ce3d030107034200'
+                . '048d617e65c9508e64bcc5673ac82a6799da3c1446682c258c463fffdf58dfd2fa3e6c378b53d795c4a4dffb4199edd7862f23abaf0203b4b'
+                . '8911ba0569994e101300a06082a8648ce3d0403020347003044022060cdb6061e9c22262d1aac1d96d8c70829b2366531dda268832cb836bc'
+                . 'd30dfa0220631b1459f09e6330055722c8d89b7f48883b9089b88d60d1d9795902b30410df',
             ],
             [
                 // This is the "CN=Yubico U2F EE Serial 13831167861" certificate as hex
                 // @see https://github.com/privacyidea/privacyidea/blob/v3.4.1/tests/test_lib_tokens_u2f.py#L22
                 // After 70d01010b038201010 the 0 is a 2 after transformation
-                '3082021c30820106a00302010202043866df75300b06092a864886f70d01010b302e312c302a0603550403132359756269636f2055324620526f6f742043412053657269616c203435373230303633313020170d3134303830313030303030305a180f32303530303930343030303030305a302b3129302706035504030c2059756269636f205532462045452053657269616c2031333833313136373836313059301306072a8648ce3d020106082a8648ce3d03010703420004378dfc740c739b94724ed3d523b9b876810656c13de86fafaecf38d90f55e2c80a1bfe0b30dc53b35de7d045b96dcb8f2bf94fa8e0b903163c7f6edc2e487b71a3123010300e060a2b0601040182c40a01010400300b06092a864886f70d01010b03820101021a4764ca0089cf92adb87fa848538e72cc3efdbb34792943047b8216a939baf4c113562a345b61475979697947bce671aa6a7c06796ed4ebb1b8fd602719b71deb3cf642e98db1d9666ff01e6db74f45af7967c046d6e6ff4b4e09a3141834b69af16465ccdecf3a0a809c0aa49a7b1943f5bd4e3dae3bdccfde6a713a49269eacfb3f9cede0ba79c6bbfba75e6118e20f0f957ea61eed52688226cab42df791037e97eda5e2df6029d2bb7fc327e745e7f9f5862bed29b068cb972a36c86522deb2c7196533335ddfaeb8b6fa0db5026aca845419061aa4d17c070e98fa2fd671d4acd0c290e474a1b4783ec246e0f89a9887c0a4d7a85c662919ba24ea7b9c',
+                '3082021c30820106a00302010202043866df75300b06092a864886f70d01010b302e312c302a0603550403132359756269636f205532462'
+                . '0526f6f742043412053657269616c203435373230303633313020170d3134303830313030303030305a180f32303530303930343030303030'
+                . '305a302b3129302706035504030c2059756269636f205532462045452053657269616c2031333833313136373836313059301306072a8648ce'
+                . '3d020106082a8648ce3d03010703420004378dfc740c739b94724ed3d523b9b876810656c13de86fafaecf38d90f55e2c80a1bfe0b30dc53b35'
+                . 'de7d045b96dcb8f2bf94fa8e0b903163c7f6edc2e487b71a3123010300e060a2b0601040182c40a01010400300b06092a864886f70d01010b0'
+                . '3820101021a4764ca0089cf92adb87fa848538e72cc3efdbb34792943047b8216a939baf4c113562a345b61475979697947bce671aa6a7c06'
+                . '796ed4ebb1b8fd602719b71deb3cf642e98db1d9666ff01e6db74f45af7967c046d6e6ff4b4e09a3141834b69af16465ccdecf3a0a809c0aa'
+                . '49a7b1943f5bd4e3dae3bdccfde6a713a49269eacfb3f9cede0ba79c6bbfba75e6118e20f0f957ea61eed52688226cab42df791037e97eda5e'
+                . '2df6029d2bb7fc327e745e7f9f5862bed29b068cb972a36c86522deb2c7196533335ddfaeb8b6fa0db5026aca845419061aa4d17c070e98fa2'
+                . 'fd671d4acd0c290e474a1b4783ec246e0f89a9887c0a4d7a85c662919ba24ea7b9c',
                 'dd574527df608e47ae45fbba75a2afdd5c20fd94a02419381813cd55a2a3398f',
-                '3082021c30820106a00302010202043866df75300b06092a864886f70d01010b302e312c302a0603550403132359756269636f2055324620526f6f742043412053657269616c203435373230303633313020170d3134303830313030303030305a180f32303530303930343030303030305a302b3129302706035504030c2059756269636f205532462045452053657269616c2031333833313136373836313059301306072a8648ce3d020106082a8648ce3d03010703420004378dfc740c739b94724ed3d523b9b876810656c13de86fafaecf38d90f55e2c80a1bfe0b30dc53b35de7d045b96dcb8f2bf94fa8e0b903163c7f6edc2e487b71a3123010300e060a2b0601040182c40a01010400300b06092a864886f70d01010b03820101001a4764ca0089cf92adb87fa848538e72cc3efdbb34792943047b8216a939baf4c113562a345b61475979697947bce671aa6a7c06796ed4ebb1b8fd602719b71deb3cf642e98db1d9666ff01e6db74f45af7967c046d6e6ff4b4e09a3141834b69af16465ccdecf3a0a809c0aa49a7b1943f5bd4e3dae3bdccfde6a713a49269eacfb3f9cede0ba79c6bbfba75e6118e20f0f957ea61eed52688226cab42df791037e97eda5e2df6029d2bb7fc327e745e7f9f5862bed29b068cb972a36c86522deb2c7196533335ddfaeb8b6fa0db5026aca845419061aa4d17c070e98fa2fd671d4acd0c290e474a1b4783ec246e0f89a9887c0a4d7a85c662919ba24ea7b9c',
+                '3082021c30820106a00302010202043866df75300b06092a864886f70d01010b302e312c302a0603550403132359756269636f2055324620526'
+                . 'f6f742043412053657269616c203435373230303633313020170d3134303830313030303030305a180f32303530303930343030303030305a30'
+                . '2b3129302706035504030c2059756269636f205532462045452053657269616c2031333833313136373836313059301306072a8648ce3d02010'
+                . '6082a8648ce3d03010703420004378dfc740c739b94724ed3d523b9b876810656c13de86fafaecf38d90f55e2c80a1bfe0b30dc53b35de7d045'
+                . 'b96dcb8f2bf94fa8e0b903163c7f6edc2e487b71a3123010300e060a2b0601040182c40a01010400300b06092a864886f70d01010b038201010'
+                . '01a4764ca0089cf92adb87fa848538e72cc3efdbb34792943047b8216a939baf4c113562a345b61475979697947bce671aa6a7c06796ed4ebb1'
+                . 'b8fd602719b71deb3cf642e98db1d9666ff01e6db74f45af7967c046d6e6ff4b4e09a3141834b69af16465ccdecf3a0a809c0aa49a7b1943f5b'
+                . 'd4e3dae3bdccfde6a713a49269eacfb3f9cede0ba79c6bbfba75e6118e20f0f957ea61eed52688226cab42df791037e97eda5e2df6029d2bb7f'
+                . 'c327e745e7f9f5862bed29b068cb972a36c86522deb2c7196533335ddfaeb8b6fa0db5026aca845419061aa4d17c070e98fa2fd671d4acd0c29'
+                . '0e474a1b4783ec246e0f89a9887c0a4d7a85c662919ba24ea7b9c',
             ],
         ];
     }
@@ -106,7 +148,7 @@ class U2FServerTest extends TestCase
     ): void {
         $signature = hex2bin($inputSignatureBlock);
         $this->assertSame($signatureHash, hash('sha256', $signature));
-        $u2f = self::getClassMethod(U2FServer::class, 'fixSignatureUnusedBits');
+        $u2f    = self::getClassMethod(U2FServer::class, 'fixSignatureUnusedBits');
         $output = bin2hex($u2f->invokeArgs(new U2FServer(), [$signature]));
         $this->assertSame($output, $outputSignatureBlock);
     }
@@ -114,19 +156,19 @@ class U2FServerTest extends TestCase
     public function testBase64UEncodeDecode(): void
     {
         $shortBlob = 'Salut';
-        $u2f = self::getClassMethod(U2FServer::class, 'base64u_encode');
-        $encoded = $u2f->invokeArgs(new U2FServer(), [$shortBlob]);
+        $u2f       = self::getClassMethod(U2FServer::class, 'base64u_encode');
+        $encoded   = $u2f->invokeArgs(new U2FServer(), [$shortBlob]);
         $this->assertNotEmpty($encoded);
         $this->assertSame('U2FsdXQ', $encoded);
-        $u2f = self::getClassMethod(U2FServer::class, 'base64u_decode');
+        $u2f     = self::getClassMethod(U2FServer::class, 'base64u_decode');
         $decoded = $u2f->invokeArgs(new U2FServer(), [$encoded]);
         $this->assertNotEmpty($decoded);
         $this->assertSame($shortBlob, $decoded);
 
-        $longBlob = '&àçècmm!:************************************************************';
+        $longBlob  = '&àçècmm!:************************************************************';
         $longBlob .= '^$ùzefzef:ezf:ze;fzefilqsnéà_è(_yà"tjzifzpofkzof,zlgugealuvnskqjvneruieg';
-        $u2f = self::getClassMethod(U2FServer::class, 'base64u_encode');
-        $encoded = $u2f->invokeArgs(new U2FServer(), [$longBlob]);
+        $u2f       = self::getClassMethod(U2FServer::class, 'base64u_encode');
+        $encoded   = $u2f->invokeArgs(new U2FServer(), [$longBlob]);
         $this->assertNotEmpty($encoded);
         $this->assertSame(
             'JsOgw6fDqGNtbSE6KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKio'
@@ -134,7 +176,7 @@ class U2FServerTest extends TestCase
                 . 'BvZmt6b2YsemxndWdlYWx1dm5za3Fqdm5lcnVpZWc',
             $encoded
         );
-        $u2f = self::getClassMethod(U2FServer::class, 'base64u_decode');
+        $u2f     = self::getClassMethod(U2FServer::class, 'base64u_decode');
         $decoded = $u2f->invokeArgs(new U2FServer(), [$encoded]);
         $this->assertNotEmpty($decoded);
         $this->assertSame($longBlob, $decoded);
@@ -145,7 +187,7 @@ class U2FServerTest extends TestCase
      */
     public function testCheckOpenSSLVersion(): void
     {
-        $u2f = self::getClassMethod(U2FServer::class, 'checkOpenSSLVersion');
+        $u2f         = self::getClassMethod(U2FServer::class, 'checkOpenSSLVersion');
         $goodVersion = $u2f->invokeArgs(new U2FServer(), []);
         $this->assertTrue($goodVersion);
     }
@@ -153,45 +195,66 @@ class U2FServerTest extends TestCase
     /**
      * @group file-system
      */
-    public function testGet_certs(): void
+    public function testGetCerts(): void
     {
-        $tempDirName = tempnam(sys_get_temp_dir(), '_testGet_certs');
+        $tempDirName = tempnam(sys_get_temp_dir(), '_testGetCerts');
         unlink($tempDirName); // This is a file for now
         mkdir($tempDirName); // And now a directory
-        $tmpFile = tempnam($tempDirName, 'cert_');
-        $u2f = self::getClassMethod(U2FServer::class, 'get_certs');
+        $tmpFile   = tempnam($tempDirName, 'cert_');
+        $u2f       = self::getClassMethod(U2FServer::class, 'get_certs');
         $filesList = $u2f->invokeArgs(new U2FServer(), [$tempDirName]);
-        $this->assertSame([
-            $tmpFile
-        ], $filesList);
+        $this->assertSame(
+            [
+            $tmpFile,
+            ],
+            $filesList
+        );
         unlink($tmpFile);
         rmdir($tempDirName);
     }
 
     public function testPublicKeyToPem(): void
     {
-        $u2f = self::getClassMethod(U2FServer::class, 'publicKeyToPem');
-        $pemKey = $u2f->invokeArgs(new U2FServer(), [
-            ''
-        ]);
+        $u2f    = self::getClassMethod(U2FServer::class, 'publicKeyToPem');
+        $pemKey = $u2f->invokeArgs(
+            new U2FServer(),
+            [
+            '',
+            ]
+        );
         $this->assertNull($pemKey);
-        $pemKeyWrongStart = $u2f->invokeArgs(new U2FServer(), [
-            'd'
-        ]);
+        $pemKeyWrongStart = $u2f->invokeArgs(
+            new U2FServer(),
+            [
+            'd',
+            ]
+        );
         $this->assertNull($pemKeyWrongStart);
-        $pemKeyWrongLength = $u2f->invokeArgs(new U2FServer(), [
-            "\x04"
-        ]);
+        $pemKeyWrongLength = $u2f->invokeArgs(
+            new U2FServer(),
+            [
+            "\x04",
+            ]
+        );
         $this->assertNull($pemKeyWrongLength);
-        $pemKeyWrongLength = $u2f->invokeArgs(new U2FServer(), [
-            "\x04" . str_repeat('*', 63)
-        ]);
+        $pemKeyWrongLength = $u2f->invokeArgs(
+            new U2FServer(),
+            [
+            "\x04" . str_repeat('*', 63),
+            ]
+        );
         $this->assertNull($pemKeyWrongLength);
-        $pemKeyOkay = $u2f->invokeArgs(new U2FServer(), [
-            // Public key for "CN=PilotGnubby-0.4.1-47901280001155957352"
-            // Value shown by KSE <https://keystore-explorer.org>
-            hex2bin('048D617E65C9508E64BCC5673AC82A6799DA3C1446682C258C463FFFDF58DFD2FA3E6C378B53D795C4A4DFFB4199EDD7862F23ABAF0203B4B8911BA0569994E101')
-        ]);
+        $pemKeyOkay = $u2f->invokeArgs(
+            new U2FServer(),
+            [
+                // Public key for "CN=PilotGnubby-0.4.1-47901280001155957352"
+                // Value shown by KSE <https://keystore-explorer.org>
+                hex2bin(
+                    '048D617E65C9508E64BCC5673AC82A6799DA3C1446682C258C463FFFDF58DFD2FA3E6C378B5'
+                    . '3D795C4A4DFFB4199EDD7862F23ABAF0203B4B8911BA0569994E101'
+                ),
+            ]
+        );
         $this->assertSame(
             // Value shown by KSE <https://keystore-explorer.org>
             '-----BEGIN PUBLIC KEY-----' . "\r\n"
@@ -209,8 +272,8 @@ class U2FServerTest extends TestCase
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 3
-            ]
+                'counter' => 3,
+            ],
         ];
 
         $auths = U2FServer::makeAuthentication(
@@ -223,8 +286,8 @@ class U2FServerTest extends TestCase
                     'version' => 'U2F_V2',
                     'challenge' => $auths[0]->challenge(),
                     'keyHandle' => $this->keyHandle,
-                    'appId' => $this->appId
-                ]
+                    'appId' => $this->appId,
+                ],
             ],
             json_decode(json_encode($auths), true)
         );
@@ -232,22 +295,23 @@ class U2FServerTest extends TestCase
 
     public function testAuthenticate(): void
     {
-
         $regs = [
             (object) [
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 3
-            ]
+                'counter' => 3,
+            ],
         ];
 
         $reqs = [
-            new SignRequest([
+            new SignRequest(
+                [
                 'challenge' => $this->challenge,
                 'keyHandle' => $this->keyHandle,
                 'appId' => $this->appId,
-            ])
+                ]
+            ),
         ];
         $this->assertSame('U2F_V2', $reqs[0]->version());
 
@@ -277,14 +341,13 @@ class U2FServerTest extends TestCase
 
     public function testMakeRegistration(): void
     {
-
         $regs = [
             (object) [
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 3
-            ]
+                'counter' => 3,
+            ],
         ];
 
         $auth = U2FServer::makeRegistration(
@@ -300,11 +363,13 @@ class U2FServerTest extends TestCase
 
                 ],
                 'signatures' => [
-                    (new SignRequest([
+                    (new SignRequest(
+                        [
                         'challenge' => $auth['signatures'][0]->challenge(),
                         'keyHandle' => $this->keyHandle,
                         'appId' => $this->appId,
-                    ]))->jsonSerialize(),
+                        ]
+                    ))->jsonSerialize(),
                 ],
             ],
             json_decode(json_encode($auth), true)
@@ -315,8 +380,8 @@ class U2FServerTest extends TestCase
     {
         $response = (object) [
             'registrationData' => $this->registrationData,
-            'clientData' =>  $this->clientData2,
-            'errorCode' => 0
+            'clientData' => $this->clientData2,
+            'errorCode' => 0,
         ];
 
         $registration = U2FServer::register(
@@ -338,8 +403,8 @@ class U2FServerTest extends TestCase
         $response = (object) [
             // Alter the data
             'registrationData' => str_replace('DY8XvKbPwMuBVrOSO-ayvT', 'DY8XvKbPaMuBVrOSO-ayvT', $this->registrationData),
-            'clientData' =>  $this->clientData2,
-            'errorCode' => 0
+            'clientData' => $this->clientData2,
+            'errorCode' => 0,
         ];
 
         U2FServer::register(
@@ -356,8 +421,8 @@ class U2FServerTest extends TestCase
 
         $response = (object) [
             'registrationData' => $this->registrationData,
-            'clientData' =>  $this->clientData2,
-            'errorCode' => 0
+            'clientData' => $this->clientData2,
+            'errorCode' => 0,
         ];
 
         $regReq = new RegistrationRequest('yKA0x088tff-GE7fKTfnzTOSaNUOWQxRd9TWz5aFOg8', $this->appId);
@@ -380,16 +445,18 @@ class U2FServerTest extends TestCase
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 3
-            ]
+                'counter' => 3,
+            ],
         ];
 
         $reqs = [
-            new SignRequest([
+            new SignRequest(
+                [
                 'challenge' => 'fEnc9oV79EaBgK5BoNERU5gPKM2XGYWrz4fUjgc0000',
                 'keyHandle' => $this->keyHandle,
                 'appId' => $this->appId,
-            ])
+                ]
+            ),
         ];
 
         $response = (object) [
@@ -418,16 +485,18 @@ class U2FServerTest extends TestCase
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 5
-            ]
+                'counter' => 5,
+            ],
         ];
 
         $reqs = [
-            new SignRequest([
+            new SignRequest(
+                [
                 'challenge' => $this->challenge,
                 'keyHandle' => $this->keyHandle,
                 'appId' => $this->appId,
-            ])
+                ]
+            ),
         ];
 
         $response = (object) [
@@ -456,16 +525,18 @@ class U2FServerTest extends TestCase
                 'keyHandle' => $this->keyHandle,
                 'publicKey' => $this->publicKey,
                 'certificate' => $this->certificate,
-                'counter' => 5
-            ]
+                'counter' => 5,
+            ],
         ];
 
         $reqs = [
-            new SignRequest([
+            new SignRequest(
+                [
                 'challenge' => $this->challenge,
                 'keyHandle' => $this->keyHandle,
                 'appId' => $this->appId,
-            ])
+                ]
+            ),
         ];
 
         $response = (object) [
@@ -490,7 +561,7 @@ class U2FServerTest extends TestCase
         $this->expectException(U2FException::class);
 
         $response = (object) [
-            'errorCode' => 1
+            'errorCode' => 1,
         ];
 
         $regReq = new RegistrationRequest('ffffffffffffffffffffffffff', $this->appId);
@@ -564,9 +635,10 @@ class U2FServerTest extends TestCase
 
         U2FServer::makeAuthentication(
             [
-                []
+                [],
             ],
             $this->appId
         );
     }
+
 }
