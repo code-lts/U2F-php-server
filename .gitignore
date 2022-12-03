@@ -2,7 +2,8 @@
 .idea
 .vscode
 *.iml
-.phpunit.result.cache
+/.php_cs.cache
+/.phpunit.result.cache
 /vendor/
 /build/
-composer.lock
+/composer.lock
