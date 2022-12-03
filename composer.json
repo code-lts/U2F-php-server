@@ -36,9 +36,6 @@
     "autoload-dev": {
         "psr-4": { "CodeLts\\U2F\\U2FServer\\Tests\\": ["test/"] }
     },
-    "replace": {
-        "samyoul/u2f-php-server": "*"
-    },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
