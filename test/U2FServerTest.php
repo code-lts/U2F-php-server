@@ -156,18 +156,18 @@ class U2FServerTest extends TestCase
     public function testBase64UEncodeDecode(): void
     {
         $shortBlob = 'Salut';
-        $u2f       = self::getClassMethod(U2FServer::class, 'base64u_encode');
+        $u2f       = self::getClassMethod(U2FServer::class, 'base64uEncode');
         $encoded   = $u2f->invokeArgs(new U2FServer(), [$shortBlob]);
         $this->assertNotEmpty($encoded);
         $this->assertSame('U2FsdXQ', $encoded);
-        $u2f     = self::getClassMethod(U2FServer::class, 'base64u_decode');
+        $u2f     = self::getClassMethod(U2FServer::class, 'base64uDecode');
         $decoded = $u2f->invokeArgs(new U2FServer(), [$encoded]);
         $this->assertNotEmpty($decoded);
         $this->assertSame($shortBlob, $decoded);
 
         $longBlob  = '&àçècmm!:************************************************************';
         $longBlob .= '^$ùzefzef:ezf:ze;fzefilqsnéà_è(_yà"tjzifzpofkzof,zlgugealuvnskqjvneruieg';
-        $u2f       = self::getClassMethod(U2FServer::class, 'base64u_encode');
+        $u2f       = self::getClassMethod(U2FServer::class, 'base64uEncode');
         $encoded   = $u2f->invokeArgs(new U2FServer(), [$longBlob]);
         $this->assertNotEmpty($encoded);
         $this->assertSame(
@@ -176,7 +176,7 @@ class U2FServerTest extends TestCase
                 . 'BvZmt6b2YsemxndWdlYWx1dm5za3Fqdm5lcnVpZWc',
             $encoded
         );
-        $u2f     = self::getClassMethod(U2FServer::class, 'base64u_decode');
+        $u2f     = self::getClassMethod(U2FServer::class, 'base64uDecode');
         $decoded = $u2f->invokeArgs(new U2FServer(), [$encoded]);
         $this->assertNotEmpty($decoded);
         $this->assertSame($longBlob, $decoded);
@@ -201,7 +201,7 @@ class U2FServerTest extends TestCase
         unlink($tempDirName); // This is a file for now
         mkdir($tempDirName); // And now a directory
         $tmpFile   = tempnam($tempDirName, 'cert_');
-        $u2f       = self::getClassMethod(U2FServer::class, 'get_certs');
+        $u2f       = self::getClassMethod(U2FServer::class, 'getCerts');
         $filesList = $u2f->invokeArgs(new U2FServer(), [$tempDirName]);
         $this->assertSame(
             [
