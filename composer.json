@@ -43,8 +43,8 @@
     },
     "archive": {
         "exclude": [
-            "/tests",
-            "/phpunit.xml.dist"
+            "/test",
+            "/phpunit.xml"
         ]
     }
 }
