@@ -89,7 +89,7 @@ class U2FServerTest extends TestCase
         $this->assertGreaterThan(20, strlen($challengeResult));
     }
 
-    public function dataProviderForFixSignatureUnusedBits(): array
+    public static function dataProviderForFixSignatureUnusedBits(): array
     {
         return [
             [
