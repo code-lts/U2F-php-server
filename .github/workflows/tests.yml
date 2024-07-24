@@ -42,5 +42,7 @@ jobs:
             - name: Send coverage
               uses: codecov/codecov-action@v4
               with:
+                fail_ci_if_error: true
+                flags: php-${{ matrix.php-version }}
                 token: ${{ secrets.CODECOV_TOKEN }}
                 file: ./coverage/cov.xml
