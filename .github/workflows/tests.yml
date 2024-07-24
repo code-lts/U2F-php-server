@@ -1,5 +1,8 @@
 name: Run tests
 
+permissions:
+  contents: read
+
 on: [push]
 
 jobs:
@@ -16,7 +19,7 @@ jobs:
                 include:
                     - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Use php ${{ matrix.php-version }}
               uses: shivammathur/setup-php@v2
               with:
@@ -37,4 +40,7 @@ jobs:
             - name: Run php tests
               run: composer run test
             - name: Send coverage
-              uses: codecov/codecov-action@v3
+              uses: codecov/codecov-action@v4
+              with:
+                token: ${{ secrets.CODECOV_TOKEN }}
+                file: ./coverage/cov.xml
