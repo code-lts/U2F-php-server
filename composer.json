@@ -18,9 +18,9 @@
         "source": "https://github.com/code-lts/U2F-php-server"
     },
     "scripts": {
-        "test": "@php phpunit",
-        "phpcs": "@php phpcs",
-        "phpcbf": "@php phpcbf"
+        "test": "@php ./vendor/bin/phpunit",
+        "phpcs": "@php ./vendor/bin/phpcs",
+        "phpcbf": "@php ./vendor/bin/phpcbf"
     },
     "require": {
         "php": "^7.1 || ^8.0",
