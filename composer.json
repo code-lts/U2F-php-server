@@ -27,7 +27,7 @@
         "ext-openssl":"*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8 || ^9 || ^10 || ^11",
+        "phpunit/phpunit": "^8 || ^9 || ^10",
         "wdes/coding-standard": "^3.3"
     },
     "autoload": {
