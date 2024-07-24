@@ -13,11 +13,13 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2", "8.3"]
+                php-version: ["7.3", "7.4", "8.0", "8.1", "8.2", "8.3"]
                 os: [ubuntu-latest]
                 experimental: [false]
+                coverage-required: [false]
                 composer-options: ['']
                 include:
+                    - { php-version: '7.2', experimental: false, os: ubuntu-latest, composer-options: '', coverage-required: true }
                     - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
             - uses: actions/checkout@v4
@@ -43,7 +45,7 @@ jobs:
             - name: Send coverage
               uses: codecov/codecov-action@v4
               with:
-                fail_ci_if_error: true
+                fail_ci_if_error: ${{ matrix.coverage-required }}
                 flags: php-${{ matrix.php-version }}
                 token: ${{ secrets.CODECOV_TOKEN }}
                 file: ./build/logs/clover.xml
