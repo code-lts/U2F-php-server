@@ -141,6 +141,7 @@ class U2FServerTest extends TestCase
     /**
      * @dataProvider dataProviderForFixSignatureUnusedBits
      */
+    #[\PHPUnit\Framework\Attributes\DataProvider('dataProviderForFixSignatureUnusedBits')]
     public function testFixSignatureUnusedBits(
         string $inputSignatureBlock,
         string $signatureHash,
@@ -185,6 +186,7 @@ class U2FServerTest extends TestCase
     /**
      * @group openssl
      */
+     #[\PHPUnit\Framework\Attributes\Group('openssl')]
     public function testCheckOpenSSLVersion(): void
     {
         $u2f         = self::getClassMethod(U2FServer::class, 'checkOpenSSLVersion');
@@ -195,6 +197,7 @@ class U2FServerTest extends TestCase
     /**
      * @group file-system
      */
+     #[\PHPUnit\Framework\Attributes\Group('file-system')]
     public function testGetCerts(): void
     {
         $tempDirName = tempnam(sys_get_temp_dir(), '_testGetCerts');
