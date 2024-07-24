@@ -46,4 +46,4 @@ jobs:
                 fail_ci_if_error: true
                 flags: php-${{ matrix.php-version }}
                 token: ${{ secrets.CODECOV_TOKEN }}
-                file: ./coverage/cov.xml
+                file: ./build/logs/clover.xml
